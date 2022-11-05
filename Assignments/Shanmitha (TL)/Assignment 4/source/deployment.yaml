@@ -1,0 +1,20 @@
+ apiVersion: extensions/v1beta1
+ kind: Deployment
+ metadata:
+   name: default
+ spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: flasknode
+   template:
+     metadata:
+       labels:
+         app: flasknode
+     spec:
+       containers:
+       - name: flasknode
+         image: ramesh/ramesh/flask_docker
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 5000
